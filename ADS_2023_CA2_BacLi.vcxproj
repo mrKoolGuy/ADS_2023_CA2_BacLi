@@ -127,13 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DLinkedList.h" />
+    <ClInclude Include="DListIterator.h" />
+    <ClInclude Include="DListNode.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Tree.h" />
+    <ClInclude Include="TreeIterator.h" />
     <ClInclude Include="XML_Parser.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DLinkedList.cpp" />
+    <ClCompile Include="DListIterator.cpp" />
+    <ClCompile Include="DListNode.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="Tree.cpp" />
+    <ClCompile Include="TreeIterator.cpp" />
     <ClCompile Include="XML_Parser.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -26,3 +26,33 @@ int Tree<T>::count()
 	}
 	return c;
 }
+
+template <class T>
+float Tree<T>::CalcMemory() 
+{
+	//Calculate File Sizes in a Folder using a Breadth First Search
+}
+
+template <class T>
+void Tree<T>::BFS() 
+{
+
+}
+
+template <class T>
+void Tree<T>::RemoveEmptyFolders()
+{
+
+}
+
+template <class T>
+void Tree<T>::FindElementbyName()
+{
+	//Use Depth First Search
+}
+
+template <class T>
+void Tree<T>::DisplayFolderContent()
+{
+	//Display Folder Content & File Sizes
+}
