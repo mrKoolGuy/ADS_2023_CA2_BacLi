@@ -1,16 +1,16 @@
 #pragma once
-#include <string>
+#include <iostream>
 
 using namespace std;
 
 template <class T>
-class Stack
+class MyStack
 {
 		T* data;
 		int capacity;
 		int topNum;
 	public:
-		Stack(string s);
+		MyStack(T s, int i);
 		bool push(T item);
 		T top();
 		void pop();
@@ -18,6 +18,6 @@ class Stack
 		bool isEmpty();
 		void clear();
 		void print();
-		~Stack();	
+		~MyStack();	
 };
 

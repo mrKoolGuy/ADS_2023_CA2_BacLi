@@ -1,15 +1,15 @@
 #include "Stack.h"
 
 template <class T>
-Stack<T>::Stack(string s)
+MyStack<T>::MyStack(T s, int i)
 {
-	data = new T[s];
+	data = new T[i];
 	capacity = i;
 	topNum = 0;
 }
 
 template <class T>
-Stack<T>::~Stack()
+MyStack<T>::~MyStack()
 {
 	topNum = 0;
 	capacity = 0;
@@ -17,7 +17,7 @@ Stack<T>::~Stack()
 }
 
 template <class T>
-void Stack<T>::print()
+void MyStack<T>::print()
 {
 	for (int i = 0; i < topNum; i++)
 	{
@@ -31,13 +31,13 @@ void Stack<T>::print()
 }
 
 template <class T>
-void Stack<T>::clear()
+void MyStack<T>::clear()
 {
 	topNum = 0;
 }
 
 template <class T>
-bool Stack<T>::push(T item)
+bool MyStack<T>::push(T item)
 {
 	if (topNum != capacity)
 	{
@@ -49,7 +49,7 @@ bool Stack<T>::push(T item)
 }
 
 template <class  T>
-T  Stack<T>::top()
+T  MyStack<T>::top()
 {
 	if (topNum > 0)
 	{
@@ -59,7 +59,7 @@ T  Stack<T>::top()
 }
 
 template <class  T>
-void  Stack<T>::pop()
+void  MyStack<T>::pop()
 {
 	if (topNum > 0)
 	{
@@ -68,13 +68,13 @@ void  Stack<T>::pop()
 }
 
 template <class T>
-int Stack<T>::size()
+int MyStack<T>::size()
 {
 	return topNum;
 }
 
 template <class T>
-bool Stack<T>::isEmpty()
+bool MyStack<T>::isEmpty()
 {
 	return topNum == 0;
 }

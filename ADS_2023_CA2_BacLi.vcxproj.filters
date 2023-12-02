@@ -21,9 +21,6 @@
     <ClInclude Include="Tree.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Stack.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="TreeIterator.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -36,15 +33,15 @@
     <ClInclude Include="DListIterator.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XML_Parser.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Tree.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Stack.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="TreeIterator.cpp">
@@ -57,6 +54,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="DListIterator.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

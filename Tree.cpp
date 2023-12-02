@@ -10,7 +10,7 @@ Tree<T>::Tree(T item)
 {
 
 	data = item;
-	children = new DList<Tree<T>*>();
+	children = new DLinkedList<Tree<T>*>();
 	parent = nullptr;
 }
 

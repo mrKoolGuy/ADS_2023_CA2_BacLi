@@ -1,7 +1,8 @@
 #pragma once
-#include "Stack.h"
 #include <string>
 #include <iostream>
+#include "Stack.h"
+#include "Stack.cpp"
 
 using namespace std;
 
@@ -9,6 +10,7 @@ class XML_Parser
 {
 private: 
 	string s_xml;
+	int validStackCap;
 
 public:
 	XML_Parser();
@@ -16,6 +18,7 @@ public:
 	void SetXML(string s_xml);
 	string GetXML();
 
-	bool validateXML();
+	bool ValidateXML();
+	bool XMLtoString();
 };
 

@@ -139,6 +139,7 @@
     <ClCompile Include="DLinkedList.cpp" />
     <ClCompile Include="DListIterator.cpp" />
     <ClCompile Include="DListNode.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="TreeIterator.cpp" />

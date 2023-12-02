@@ -165,7 +165,7 @@ DListIterator<T> DLinkedList<T>::remove(DListIterator<T>& iter)
 template <class T>
 DLinkedList<T>::~DLinkedList()
 {
-	DLinkedListNode<T>* iter, * next = nullptr;
+	DListNode<T>* iter, *next = nullptr;
 	iter = head;
 	while (iter != nullptr)
 	{

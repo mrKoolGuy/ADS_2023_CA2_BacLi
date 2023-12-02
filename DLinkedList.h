@@ -1,6 +1,12 @@
 #pragma once
+template <class T> class DLinkedList;
+template <class T> class DListIterator;
 #include "DListNode.h"
 #include "DListIterator.h"
+#include <iostream>
+
+
+using namespace std;
 
 template <class T> 
 class DLinkedList

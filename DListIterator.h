@@ -1,5 +1,8 @@
 #pragma once
 
+//template <class T> class DLinkedList;
+//template <class T> class DListIterator;
+
 #include "DLinkedList.h"
 #include "DListNode.h"
 
@@ -8,7 +11,7 @@ class DListIterator
 {
 public:
 	DListNode<T>* currentNode;
-	DList<T>* list;
+	DLinkedList<T>* list;
 
 	DListIterator(DLinkedList<T>* l = nullptr, DListNode<T>* node = nullptr);
 	void start();
