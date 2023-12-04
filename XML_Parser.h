@@ -3,6 +3,9 @@
 #include <iostream>
 #include "Stack.h"
 #include "Stack.cpp"
+#include "Tree.h"
+#include "TreeIterator.h"
+#include "TreeFile.h"
 
 using namespace std;
 
@@ -12,6 +15,9 @@ private:
 	string s_xml;
 	int validStackCap;
 
+	string GetTag(int& i);
+	string GetData(int& i);
+
 public:
 	XML_Parser();
 	XML_Parser(string s);
@@ -20,5 +26,7 @@ public:
 
 	bool ValidateXML();
 	bool XMLtoString();
+
+	void CreateTree(Tree<string>*& root);
 };
 

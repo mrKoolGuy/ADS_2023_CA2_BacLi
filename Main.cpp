@@ -10,7 +10,11 @@
 
 int main() 
 {
-	string testXML = "<root> gucci <folder> mommy <file>your momi love you </file></folder>";
-	XML_Parser xml(testXML);
-	cout << xml.ValidateXML();
+	string testXML = "<root> gucci <dir> mommy <file>your momi love you </file></folder>";
+	string testXML2 = "<root><dir><name>super</name><file><name>file1</name><length>1234</length><type>.exe</type></file><file><name>file2</name><length>1222</length><type>.png</type></file></dir></root>";
+	XML_Parser xml(testXML2);
+
+	Tree<string>* root = nullptr;
+	TreeIterator<string> iter(root);
+	xml.CreateTree(root);
 }
