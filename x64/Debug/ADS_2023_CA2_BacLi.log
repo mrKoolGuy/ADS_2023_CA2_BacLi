@@ -1,2 +1,8 @@
-﻿  Main.cpp
+﻿  XML_Parser.cpp
+C:\Users\lione\source\repos\ADS_2023_CA2_BacLi\ADS_2023_CA2_BacLi\XML_Parser.cpp(201,35): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+C:\Users\lione\source\repos\ADS_2023_CA2_BacLi\ADS_2023_CA2_BacLi\XML_Parser.cpp(224,35): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+C:\Users\lione\source\repos\ADS_2023_CA2_BacLi\ADS_2023_CA2_BacLi\XML_Parser.cpp(229,35): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+C:\Users\lione\source\repos\ADS_2023_CA2_BacLi\ADS_2023_CA2_BacLi\XML_Parser.cpp(230,35): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+C:\Users\lione\source\repos\ADS_2023_CA2_BacLi\ADS_2023_CA2_BacLi\XML_Parser.cpp(241,35): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+C:\Users\lione\source\repos\ADS_2023_CA2_BacLi\ADS_2023_CA2_BacLi\XML_Parser.cpp(242,35): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
   ADS_2023_CA2_BacLi.vcxproj -> C:\Users\lione\source\repos\ADS_2023_CA2_BacLi\x64\Debug\ADS_2023_CA2_BacLi.exe

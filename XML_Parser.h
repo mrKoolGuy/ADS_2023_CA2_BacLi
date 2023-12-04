@@ -2,7 +2,6 @@
 #include <string>
 #include <iostream>
 #include "Stack.h"
-#include "Stack.cpp"
 #include "Tree.h"
 #include "TreeIterator.h"
 #include "TreeFile.h"

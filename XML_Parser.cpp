@@ -57,12 +57,17 @@ bool XML_Parser::ValidateXML()
     int elementNr = 0;
     string prevTag = "";
 
+    //remove all whitespace 
+    if (s_xml == "") {
+        return false;
+    }
+
     for (int i = 0; i < s_xml.length(); i++) {
 
         closingTag = false;
 
         //If Tag opens
-        if (s_xml[i] == '<') 
+        if (s_xml[i] == '<')
         {
             string tag = "";
 
@@ -83,7 +88,7 @@ bool XML_Parser::ValidateXML()
             }
 
             //check if first element is not root, return invalid
-            if (elementNr == 0 && tag != "root") 
+            if ((elementNr == 0 && tag != "root") && (elementNr == 0 && tag != "dir"))
             {
                 return false;
             }
@@ -101,6 +106,7 @@ bool XML_Parser::ValidateXML()
                     if (tag != validStack.top() && tag != prevTag)
                     {
                         validStack.push(tag);
+                        prevTag = validStack.top();
                     }
                     else
                     {
@@ -108,8 +114,10 @@ bool XML_Parser::ValidateXML()
                     }
                 }
                 else 
-                {
+                {                   
                     validStack.push(tag);
+                    prevTag = validStack.top();
+                    //cout << "TEST: validStack.top() = " << validStack.top() << endl;
                 }
             }
             //if it is a closing tag, check if it corresponds with the previous opening tag
@@ -117,7 +125,6 @@ bool XML_Parser::ValidateXML()
             {
                 if (tag == validStack.top()) 
                 {
-                    prevTag = validStack.top();
                     validStack.pop();
                 }
                 //if it is not the same tag, return false: invalid stack
@@ -131,6 +138,7 @@ bool XML_Parser::ValidateXML()
             cout << "TEST:" << tag << " | " << closingTag << endl;
             
         }
+        
     }
 
     if (validStack.size() != 0) 
@@ -172,9 +180,6 @@ void XML_Parser::CreateTree(Tree<string> *& root)
 
                 //get the tag
                 tag = GetTag(i);
-                //tag = s_xml.substr(++i, s_xml.find('>', i) - i);
-
-                //until here, everything is fine
             }
             //if the next character is not a tag opening
             else
