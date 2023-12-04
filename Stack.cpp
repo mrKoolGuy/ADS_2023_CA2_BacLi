@@ -55,7 +55,7 @@ T  MyStack<T>::top()
 	{
 		return data[topNum - 1];
 	}
-	return 0;
+	return "";
 }
 
 template <class  T>
