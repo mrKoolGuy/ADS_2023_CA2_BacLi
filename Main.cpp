@@ -15,8 +15,9 @@ int main()
 <name>test</name>
     </dir>
 )";
+	string emptyStr = "   ";
 	string testXML2 = "<root><dir><name>super</name><file><name>file1</name><length>1234</length><type>.exe</type></file><file><name>file2</name><length>1222</length><type>.png</type></file></dir></root>";
-	XML_Parser xml(testXML2);
+	XML_Parser xml(emptyStr);
 	cout << xml.ValidateXML();
 
 	/*Tree<string>* root = nullptr;

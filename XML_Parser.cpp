@@ -57,8 +57,13 @@ bool XML_Parser::ValidateXML()
     int elementNr = 0;
     string prevTag = "";
 
-    //remove all whitespace 
+    //Check is string is empty
     if (s_xml == "") {
+        return false;
+    }
+
+    if (s_xml.find('<') == string::npos) {
+        //cout << "TEST: '<' not found" << endl;
         return false;
     }
 
