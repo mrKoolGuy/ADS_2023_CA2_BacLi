@@ -1,5 +1,6 @@
 #pragma once
 #include "DLinkedList.h"
+#include <queue>
 
 template<class T>
 class Tree
@@ -14,11 +15,11 @@ class Tree
 		Tree(string item, int length, string type);
 		Tree(string item);
 		int count();
-		string getData();
+		string getName();
 
 		//Stage 2 Functions
-		float CalcMemory();
-		void BFS();
+		//int CalcMemory();
+		void BFS(Tree<string> tree);
 		void RemoveEmptyFolders();
 		void FindElementbyName();
 		void DisplayFolderContent();
@@ -26,7 +27,7 @@ class Tree
 };
 
 template <class T>
-string Tree<T>::getData()
+string Tree<T>::getName()
 {
 	return name;
 }
@@ -36,6 +37,8 @@ template <class T>
 Tree<T>::Tree(string name)
 {
 	this->name = name;
+	this->length = 0;
+	this->type = "";
 	children = new DLinkedList<Tree<T>*>();
 	parent = nullptr;
 }
@@ -64,16 +67,10 @@ int Tree<T>::count()
 	return c;
 }
 
-template <class T>
-float Tree<T>::CalcMemory()
-{
-	//Calculate File Sizes in a Folder using a Breadth First Search
-}
 
 template <class T>
-void Tree<T>::BFS()
+void Tree<T>::BFS(Tree<string> tree)
 {
-
 }
 
 template <class T>

@@ -6,7 +6,34 @@
 #include "Tree.h"
 #include "TreeIterator.h"
 #include "XML_Parser.h"
+#include <queue>
 
+template <class T>
+int CalcMemory(Tree<string> tree)
+{
+	//Calculate File Sizes in a Folder using a Breadth First Search
+	int totalSize = 0;
+
+	//Breadth first search
+	queue<Tree<string>> queue;
+	queue.push(tree);
+	while (!queue.empty())
+	{
+		DListIterator<Tree<string>*> iter = queue.front().children->getIterator();
+		while (iter.isValid())
+		{
+			if (iter.item()->length != 0)
+			{
+				totalSize += iter.item()->length;
+			}
+			queue.push(*iter.item());
+			iter.advance();
+		}
+		queue.pop();
+	}
+
+	return totalSize;
+}
 
 int main() 
 {
@@ -20,7 +47,9 @@ int main()
 	XML_Parser xml(emptyStr);
 	cout << xml.ValidateXML();
 
-	/*Tree<string>* root = nullptr;
+	Tree<string>* root = nullptr;
 	TreeIterator<string> iter(root);
-	xml.CreateTree(root);*/
+	xml.CreateTree(root);
+
+	cout << CalcMemory(*root) << endl;
 }

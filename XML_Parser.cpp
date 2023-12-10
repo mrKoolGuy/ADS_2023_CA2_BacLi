@@ -48,8 +48,6 @@ string XML_Parser::GetData(int& i)
     return data;
 }
 
-
-
 bool XML_Parser::ValidateXML()
 {
     MyStack<string> validStack("", validStackCap);
@@ -166,7 +164,7 @@ void XML_Parser::CreateTree(Tree<string> *& root)
     if (ValidateXML()) 
     {
         bool closingTag = false;
-        Tree<string>* previousParent = nullptr;
+        Tree<string>* previousParent = root;
         string tag = "";
 
         for (int i = 0; i < s_xml.length(); i++) {
