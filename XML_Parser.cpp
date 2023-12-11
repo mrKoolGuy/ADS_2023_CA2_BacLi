@@ -158,7 +158,7 @@ bool XML_Parser::XMLtoString()
     return false;
 }
 
-void XML_Parser::CreateTree(Tree<string> *& root)
+void XML_Parser::CreateTree(Tree<string> *& root, TreeIterator<string> &iter)
 {
 
     if (ValidateXML()) 
@@ -210,13 +210,15 @@ void XML_Parser::CreateTree(Tree<string> *& root)
 
                     //create dir in tree
                     Tree<string>* dir = new Tree<string>(nameTag);
-                    dir->parent = previousParent;
-                    if (previousParent != nullptr)
+                    if (previousParent == nullptr) 
                     {
-                        previousParent->children->append(dir);
+                        root = dir;
                     }
+                    else {
+                        dir->parent = previousParent;
+                        previousParent->children->append(dir);
+                    }                  
                     previousParent = dir;
-                    cout << "SUCCESS: Created dir" << endl;
 
                     tag = "";
                 }
@@ -261,7 +263,6 @@ void XML_Parser::CreateTree(Tree<string> *& root)
                     {
                         previousParent->children->append(file);
                     }
-                    cout << "SUCCESS: Created file" << endl;
 
                     tag = "";
                 }
@@ -269,8 +270,6 @@ void XML_Parser::CreateTree(Tree<string> *& root)
                 {
                     //Invalid
                     //return;
-
-                    cout << "Invalid Tag" << endl;
                 }
             }
             else

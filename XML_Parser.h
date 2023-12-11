@@ -26,6 +26,6 @@ public:
 	bool ValidateXML();
 	bool XMLtoString();
 
-	void CreateTree(Tree<string>*& root);
+	void CreateTree(Tree<string>*& root, TreeIterator<string>& iter);
 };
 
