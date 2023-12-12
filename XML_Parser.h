@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <fstream>
 #include "Stack.h"
 #include "Tree.h"
 #include "TreeIterator.h"
-#include "TreeFile.h"
 
 using namespace std;
 
@@ -19,13 +20,13 @@ private:
 
 public:
 	XML_Parser();
-	XML_Parser(string s);
+	XML_Parser(string filePath);
 	void SetXML(string s_xml);
 	string GetXML();
 
 	bool ValidateXML();
-	bool XMLtoString();
+	string XMLtoString(string filePath);
 
-	void CreateTree(Tree<string>*& root, TreeIterator<string>& iter);
+	void CreateTree(Tree<string>*& root);
 };
 

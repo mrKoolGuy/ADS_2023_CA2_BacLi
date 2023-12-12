@@ -18,9 +18,7 @@ class Tree
 		string getName();
 
 		//Stage 2 Functions
-		//int CalcMemory();
 		void BFS(Tree<string> tree);
-		void RemoveEmptyFolders();
 		void FindElementbyName();
 		void DisplayFolderContent();
 
@@ -50,7 +48,7 @@ Tree<T>::Tree(string name, int length, string type)
 	this->name = name;
 	this->length = length;
 	this->type = type;
-	children = new DLinkedList<Tree<T>*>();
+	children = new DLinkedList<Tree<T>*>();;
 	parent = nullptr;
 }
 
@@ -70,11 +68,6 @@ int Tree<T>::count()
 
 template <class T>
 void Tree<T>::BFS(Tree<string> tree)
-{
-}
-
-template <class T>
-void Tree<T>::RemoveEmptyFolders()
 {
 
 }

@@ -7,9 +7,9 @@ XML_Parser::XML_Parser()
     this->validStackCap = 100;
 }
 
-XML_Parser::XML_Parser(string s)
+XML_Parser::XML_Parser(string filePath)
 {
-    this->s_xml = s;
+    this->s_xml = XMLtoString(filePath);
     this->validStackCap = 100;
 }
 
@@ -26,7 +26,7 @@ string XML_Parser::GetXML()
 string XML_Parser::GetTag(int& i)
 {
     string tag = "";
-
+    
     //Add all characters of Tag into "tag" string
     for (i += 1; s_xml[i] != '>'; i++)
     {
@@ -61,7 +61,6 @@ bool XML_Parser::ValidateXML()
     }
 
     if (s_xml.find('<') == string::npos) {
-        //cout << "TEST: '<' not found" << endl;
         return false;
     }
 
@@ -106,7 +105,7 @@ bool XML_Parser::ValidateXML()
             {
                 if (validStack.top() != "" && prevTag != "")
                 {
-                    if (tag != validStack.top() && tag != prevTag)
+                    if (tag != prevTag)
                     {
                         validStack.push(tag);
                         prevTag = validStack.top();
@@ -138,7 +137,7 @@ bool XML_Parser::ValidateXML()
             }
 
             //Test Print
-            cout << "TEST:" << tag << " | " << closingTag << endl;
+            //cout << "TEST:" << tag << " | " << closingTag << endl;
             
         }
         
@@ -152,13 +151,22 @@ bool XML_Parser::ValidateXML()
     return true;
 }
 
-bool XML_Parser::XMLtoString()
+string XML_Parser::XMLtoString(string filePath)
 {
     //Parse real XML file into string
-    return false;
+    ifstream file(filePath);
+
+    if (!file.is_open()) cout << "Error opening file: " << filePath << endl;
+
+    stringstream stream;
+    stream << file.rdbuf();
+
+    file.close();
+
+    return stream.str();
 }
 
-void XML_Parser::CreateTree(Tree<string> *& root, TreeIterator<string> &iter)
+void XML_Parser::CreateTree(Tree<string> *& root)
 {
 
     if (ValidateXML()) 
@@ -171,6 +179,10 @@ void XML_Parser::CreateTree(Tree<string> *& root, TreeIterator<string> &iter)
 
             closingTag = false;
 
+            if (s_xml[i] == '\n')
+            {
+                i++;
+            }
             //If Tag opens
             if (s_xml[i] == '<')
             {              
@@ -227,7 +239,7 @@ void XML_Parser::CreateTree(Tree<string> *& root, TreeIterator<string> &iter)
                     int length = 0;
                     string type = "";
 
-                    i = s_xml.find('<', i - 1);
+                    i = s_xml.find('<', i);
                     if (GetTag(i) == "name")
                     {
                         nameTag = s_xml.substr(++i, s_xml.find('<', i) - i);
@@ -237,7 +249,6 @@ void XML_Parser::CreateTree(Tree<string> *& root, TreeIterator<string> &iter)
                     if (GetTag(i) == "length")
                     {
                         length = stoi(s_xml.substr(++i, s_xml.find('<', i) - i));
-                        cout << "TEST length: " << length << endl;
                     }
                     else
                     {
@@ -249,14 +260,13 @@ void XML_Parser::CreateTree(Tree<string> *& root, TreeIterator<string> &iter)
                     if (GetTag(i) == "type")
                     {
                         type = s_xml.substr(++i, s_xml.find('<', i) - i);
-                        cout << "TEST type: " << type << endl;
                     }
                     else
                     {
                         //File without type -> Invalid
                         return;
                     }
-
+                    i = s_xml.find('>', i);
                     Tree<string>* file = new Tree<string>(nameTag, length, type);
                     file->parent = previousParent;
                     if (previousParent != nullptr)
@@ -274,12 +284,15 @@ void XML_Parser::CreateTree(Tree<string> *& root, TreeIterator<string> &iter)
             }
             else
             {
-                cout << "TEST closingTag: " << closingTag << endl;
+                //it is a closing tag
+                if (tag == "dir") {
+                    previousParent = previousParent->parent;
+                }
             }
         }
     }
     else 
     {
-        cout << "false" << endl;
+        cout << "ERROR: Tree Invalid" << endl;
     }
 }

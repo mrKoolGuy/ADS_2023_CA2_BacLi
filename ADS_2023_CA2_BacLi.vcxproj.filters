@@ -36,9 +36,6 @@
     <ClInclude Include="Stack.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="TreeFile.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XML_Parser.cpp">
@@ -47,5 +44,10 @@
     <ClCompile Include="Main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="testxml.xml">
+      <Filter>Ressourcendateien</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

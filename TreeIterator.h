@@ -173,12 +173,12 @@ bool TreeIterator<T>::childValid()
 template <class T>
 T TreeIterator<T>::childItem()
 {
-	return childIter->node->data;
+	return childIter->node->name;
 }
 
 template <class T>
 T TreeIterator<T>::item()
 {
-	return node->data;
+	return node->name;
 }
 
