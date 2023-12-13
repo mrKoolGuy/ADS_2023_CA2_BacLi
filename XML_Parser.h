@@ -28,5 +28,11 @@ public:
 	string XMLtoString(string filePath);
 
 	void CreateTree(Tree<string>*& root);
+
+	void RemoveEmptyFolders(TreeIterator<string> iter);
+	int CalcMemory(Tree<string> tree);
+	int CountItems(Tree<string> tree);
+
+
 };
 

@@ -296,3 +296,76 @@ void XML_Parser::CreateTree(Tree<string> *& root)
         cout << "ERROR: Tree Invalid" << endl;
     }
 }
+
+
+int XML_Parser::CountItems(Tree<string> tree)
+{
+    //start with one to include root in count
+    int count = 1;
+    queue<Tree<string>> queue;
+    queue.push(tree);
+    while (!queue.empty())
+    {
+        DListIterator<Tree<string>*> iter = queue.front().children->getIterator();
+        while (iter.isValid())
+        {
+            count++;
+            queue.push(*iter.item());
+            iter.advance();
+        }
+        queue.pop();
+    }
+    return count;
+}
+
+
+int XML_Parser::CalcMemory(Tree<string> tree)
+{
+    //Calculate File Sizes in a Folder using a Breadth First Search
+    int totalSize = 0;
+
+    queue<Tree<string>> queue;
+    queue.push(tree);
+    while (!queue.empty())
+    {
+        DListIterator<Tree<string>*> iter = queue.front().children->getIterator();
+        while (iter.isValid())
+        {
+            if (iter.item()->length != 0)
+            {
+                totalSize += iter.item()->length;
+            }
+            queue.push(*iter.item());
+            iter.advance();
+        }
+        queue.pop();
+    }
+
+    return totalSize;
+}
+
+void XML_Parser::RemoveEmptyFolders(TreeIterator<string> iter) //Work in Progress
+{
+    while (iter.childValid())
+    {
+        TreeIterator<string> iter2(iter.childIter.currentNode->data);
+        iter.childForth();
+        RemoveEmptyFolders(iter2);
+
+    }
+
+    if (iter.node->length == 0 && iter.node->children->count == 0)
+    {
+        TreeIterator<string> iter2(iter.node->parent);
+        while (iter2.childValid())
+        {
+            if (iter2.childIter.currentNode != nullptr && iter2.childIter.currentNode->data->length == 0 && iter2.childIter.currentNode->data->children->count == 0)
+            {
+
+                iter2.removeChild();
+                cout << "Deleted!" << endl;
+            }
+            iter2.childForth();
+        }
+    }
+}
